@@ -1,3 +1,8 @@
 import 'package:stacked/stacked.dart';
 
-class ChatsViewModel extends BaseViewModel {}
+import '../../app/orientations.dart';
+
+class ChatsViewModel extends BaseViewModel {
+  late bool mobile;
+  late bool windows;
+}
