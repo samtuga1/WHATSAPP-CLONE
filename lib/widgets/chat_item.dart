@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:whatsap_clone/constants/icons.dart';
 
 class ChatItem extends StatelessWidget {
-  const ChatItem({Key? key}) : super(key: key);
+  const ChatItem({Key? key, this.onHover}) : super(key: key);
+  final bool? onHover;
 
   @override
   Widget build(BuildContext context) {
@@ -29,10 +32,15 @@ class ChatItem extends StatelessWidget {
         ),
         const Spacer(),
         Column(
-          children: const [
-            Text('29/08/22'),
-            Chip(
-              label: Text('221'),
+          children: [
+            const Text('29/08/22'),
+            Row(
+              children: [
+                const Chip(
+                  label: Text('221'),
+                ),
+                if (onHover ?? false) const FaIcon(kDropdownIcon)
+              ],
             ),
           ],
         )
