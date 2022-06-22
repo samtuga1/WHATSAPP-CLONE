@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:whatsap_clone/screens/chats_screen.dart';
+import 'package:whatsap_clone/screens/home.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,11 +12,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'WhatsApp',
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
-      home: const ChatsScreen(),
+      home: const HomeScreen(),
     );
   }
 }
