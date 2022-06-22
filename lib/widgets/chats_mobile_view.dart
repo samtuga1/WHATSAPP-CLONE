@@ -90,7 +90,7 @@ class _ChatsMobileViewState extends State<ChatsMobileView> {
             pinned: true,
             floating: true,
             elevation: 0,
-            backgroundColor: Colors.grey.withOpacity(0.002),
+            backgroundColor: Colors.grey.shade50,
             leading: Container(
               margin: const EdgeInsets.only(left: 14, top: 10),
               child: const Text(
