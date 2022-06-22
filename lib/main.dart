@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:stacked_services/stacked_services.dart';
-import 'package:whatsap_clone/app/app.router.dart';
+import 'package:whatsap_clone/screens/chats_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,11 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'WhatsApp',
-      navigatorKey: StackedService.navigatorKey,
-      onGenerateRoute: StackedRouter().onGenerateRoute,
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
+      home: const ChatsScreen(),
     );
   }
 }
