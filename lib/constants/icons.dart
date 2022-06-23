@@ -13,5 +13,4 @@ const kStarIcon = FontAwesomeIcons.star;
 const kLaptopIcon = FontAwesomeIcons.laptop;
 const kKeyIcon = FontAwesomeIcons.key;
 const kWhatsapIcon = FontAwesomeIcons.whatsapp;
-const kArrowUpArrowDown = FontAwesomeIcons.arrowsUpDown;
 const kinfoIcon = FontAwesomeIcons.info;
