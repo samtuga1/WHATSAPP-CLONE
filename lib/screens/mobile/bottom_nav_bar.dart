@@ -1,7 +1,10 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsap_clone/constants/icons.dart';
 import 'package:whatsap_clone/constants/themes.dart';
+import 'package:whatsap_clone/providers/mobile/settings_provider.dart';
 import 'package:whatsap_clone/screens/mobile/chats_screen.dart';
 import 'package:whatsap_clone/screens/mobile/settings.dart';
 import 'chats_screen.dart';
@@ -18,7 +21,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   Widget build(BuildContext context) {
     List<Widget> screens = [
       const MobileChatsScreen(),
-      const MobileSettings(),
+      ChangeNotifierProvider<MobileSettingSProvider>(
+        create: (context) => MobileSettingSProvider(),
+        child: MobileSettings(),
+      ),
     ];
     int currentScreenIndex = 1;
 
