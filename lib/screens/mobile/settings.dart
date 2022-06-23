@@ -75,14 +75,8 @@ class _MobileSettingsState extends State<MobileSettings> {
                   ),
                   InkWell(
                     splashFactory: InkRipple.splashFactory,
-                    onTap: () => Navigator.of(context).push(
-                      CustomPageRouter(
-                        direction: AxisDirection.left,
-                        child: ProfileScreen(),
-                      ),
-                    ),
-                    // Navigator.of(context)
-                    //     .pushNamed(ProfileScreen.routeName),
+                    onTap: () => Navigator.of(context)
+                        .pushNamed(ProfileScreen.routeName),
                     child: Container(
                       padding: const EdgeInsets.symmetric(
                           horizontal: 12, vertical: 3),
