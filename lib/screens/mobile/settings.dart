@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:whatsap_clone/constants/icons.dart';
 import 'package:whatsap_clone/constants/themes.dart';
+import '../../widgets/option_selector.dart';
 
 class MobileSettings extends StatelessWidget {
   const MobileSettings({Key? key}) : super(key: key);
@@ -73,7 +74,7 @@ class MobileSettings extends StatelessWidget {
               color: Colors.white60,
               border: Border.all(color: Colors.grey, width: 0.5),
             ),
-            margin: const EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.only(top: 37),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: const [
@@ -99,7 +100,7 @@ class MobileSettings extends StatelessWidget {
               color: Colors.white60,
               border: Border.all(color: Colors.grey, width: 0.5),
             ),
-            margin: const EdgeInsets.symmetric(vertical: 10),
+            margin: const EdgeInsets.only(top: 37),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -116,11 +117,17 @@ class MobileSettings extends StatelessWidget {
                   title: 'Chats',
                   iconContainerColor: Colors.green,
                 ),
+                const Divider(
+                  indent: 50,
+                ),
                 OptionSelector(
                   alternateIcon: SizedBox(
-                    height: 10,
-                    width: 10,
-                    child: Image.asset('assets/icons/notification.png'),
+                    height: 25,
+                    width: 25,
+                    child: Image.asset(
+                      'assets/icons/notification.png',
+                      color: Colors.white,
+                    ),
                   ),
                   title: 'Notifications',
                   iconContainerColor: Colors.red,
@@ -135,52 +142,33 @@ class MobileSettings extends StatelessWidget {
                 ),
               ],
             ),
-          )
-        ],
-      ),
-    );
-  }
-}
-
-class OptionSelector extends StatelessWidget {
-  const OptionSelector({
-    Key? key,
-    required this.title,
-    this.icon,
-    this.onTap,
-    required this.iconContainerColor,
-    this.alternateIcon,
-  }) : super(key: key);
-  final String title;
-  final IconData? icon;
-  final Function()? onTap;
-  final Color iconContainerColor;
-  final Widget? alternateIcon;
-
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: null,
-      child: Row(
-        children: [
+          ),
           Container(
-            height: 38,
-            width: 38,
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 8.5),
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: iconContainerColor,
+              color: Colors.white60,
+              border: Border.all(color: Colors.grey, width: 0.5),
             ),
-            child: Icon(icon),
+            margin: const EdgeInsets.symmetric(vertical: 37),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                OptionSelector(
+                  icon: kinfoIcon,
+                  title: 'Help',
+                  iconContainerColor: Colors.blue,
+                ),
+                Divider(
+                  indent: 50,
+                ),
+                OptionSelector(
+                  icon: Icons.favorite,
+                  title: 'Tell a Friend',
+                  iconContainerColor: Colors.red,
+                ),
+              ],
+            ),
           ),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 17.5),
-          ),
-          const Spacer(),
-          icon == null ? alternateIcon! : const FaIcon(kFowardIcon),
         ],
       ),
     );
