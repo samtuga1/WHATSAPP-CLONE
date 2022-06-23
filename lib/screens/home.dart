@@ -4,6 +4,7 @@ import 'package:whatsap_clone/screens/desktop/desktop_chats_screen.dart';
 import 'package:whatsap_clone/screens/mobile/bottom_nav_bar.dart';
 
 class HomeScreen extends StatelessWidget {
+  static const routeName = '/home_screen';
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
