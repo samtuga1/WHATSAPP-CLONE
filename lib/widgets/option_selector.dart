@@ -21,39 +21,46 @@ class OptionSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
+      splashFactory: InkRipple.splashFactory,
       onTap: () {},
-      child: Row(
-        children: [
-          Container(
-            height: 38,
-            width: 38,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: iconContainerColor,
-            ),
-            child: icon == null
-                ? Center(child: alternateIcon!)
-                : Center(
-                    child: FaIcon(
-                      icon,
-                      size: 20.5,
-                      color: Colors.white,
+      child: Padding(
+        padding: const EdgeInsets.only(
+          right: 15,
+          left: 15,
+        ),
+        child: Row(
+          children: [
+            Container(
+              height: 38,
+              width: 38,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: iconContainerColor,
+              ),
+              child: icon == null
+                  ? Center(child: alternateIcon!)
+                  : Center(
+                      child: FaIcon(
+                        icon,
+                        size: 20.5,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-          ),
-          const SizedBox(
-            width: 10,
-          ),
-          Text(
-            title,
-            style: const TextStyle(fontSize: 17.5),
-          ),
-          const Spacer(),
-          const Icon(
-            kFowardIcon,
-            color: Colors.grey,
-          )
-        ],
+            ),
+            const SizedBox(
+              width: 10,
+            ),
+            Text(
+              title,
+              style: const TextStyle(fontSize: 17.5),
+            ),
+            const Spacer(),
+            const Icon(
+              kFowardIcon,
+              color: Colors.grey,
+            )
+          ],
+        ),
       ),
     );
   }
