@@ -19,57 +19,58 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    List<Widget> screens = [
-      const MobileChatsScreen(),
-      ChangeNotifierProvider<MobileSettingSProvider>(
-        create: (context) => MobileSettingSProvider(),
-        child: MobileSettings(),
-      ),
-    ];
-    int currentScreenIndex = 1;
+    // List<Widget> screens = [
+    //   const MobileChatsScreen(),
+    //   ChangeNotifierProvider<MobileSettingSProvider>(
+    //     create: (context) => MobileSettingSProvider(),
+    //     child: MobileSettings(),
+    //   ),
+    // ];
+    // int currentScreenIndex = 1;
 
-    return Scaffold(
-      backgroundColor: kBackgroundColor,
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.shifting,
-        currentIndex: currentScreenIndex,
-        selectedLabelStyle: const TextStyle(fontSize: 12),
-        unselectedLabelStyle: const TextStyle(fontSize: 12),
-        selectedItemColor: Colors.blue,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        iconSize: 20,
-        unselectedItemColor: Colors.grey,
-        onTap: (value) => setState(() => currentScreenIndex = value),
-        items: const [
-          BottomNavigationBarItem(
-            label: 'Status',
-            icon: SizedBox(
-              height: 30,
-              child: FaIcon(kStatusIcon),
+    return CupertinoTabScaffold(
+        backgroundColor: kBackgroundColor,
+        tabBar: CupertinoTabBar(
+          activeColor: Colors.blue,
+          iconSize: 20,
+          inactiveColor: Colors.grey,
+          onTap: (index) {},
+          items: const [
+            BottomNavigationBarItem(
+              label: 'Status',
+              icon: SizedBox(
+                height: 30,
+                child: FaIcon(kStatusIcon),
+              ),
             ),
-          ),
-          BottomNavigationBarItem(
-            label: 'Calls',
-            icon: FaIcon(kCallIcon),
-          ),
-          BottomNavigationBarItem(
-            label: 'Camera',
-            icon: FaIcon(kCameraIcon),
-          ),
-          BottomNavigationBarItem(
-            label: 'Chats',
-            icon: FaIcon(kChatsIcon),
-          ),
-          BottomNavigationBarItem(
-            label: 'Settings',
-            icon: FaIcon(kSettingsIcon),
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: screens[currentScreenIndex],
-      ),
-    );
+            BottomNavigationBarItem(
+              label: 'Calls',
+              icon: FaIcon(kCallIcon),
+            ),
+            BottomNavigationBarItem(
+              label: 'Camera',
+              icon: FaIcon(kCameraIcon),
+            ),
+            BottomNavigationBarItem(
+              label: 'Chats',
+              icon: FaIcon(kChatsIcon),
+            ),
+            BottomNavigationBarItem(
+              label: 'Settings',
+              icon: FaIcon(kSettingsIcon),
+            ),
+          ],
+        ),
+        tabBuilder: (context, index) {
+          switch (index) {
+            case 0:
+              return const MobileChatsScreen();
+            case 1:
+              return const MobileSettings();
+            case 3:
+            default:
+              return const MobileSettings();
+          }
+        });
   }
 }
