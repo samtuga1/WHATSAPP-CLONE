@@ -19,58 +19,50 @@ class BottomNavBar extends StatefulWidget {
 class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
-    // List<Widget> screens = [
-    //   const MobileChatsScreen(),
-    //   ChangeNotifierProvider<MobileSettingSProvider>(
-    //     create: (context) => MobileSettingSProvider(),
-    //     child: MobileSettings(),
-    //   ),
-    // ];
-    // int currentScreenIndex = 1;
-
     return CupertinoTabScaffold(
-        backgroundColor: kBackgroundColor,
-        tabBar: CupertinoTabBar(
-          activeColor: Colors.blue,
-          iconSize: 20,
-          inactiveColor: Colors.grey,
-          onTap: (index) {},
-          items: const [
-            BottomNavigationBarItem(
-              label: 'Status',
-              icon: SizedBox(
-                height: 30,
-                child: FaIcon(kStatusIcon),
-              ),
+      backgroundColor: kBackgroundColor,
+      tabBar: CupertinoTabBar(
+        activeColor: Colors.blue,
+        iconSize: 20,
+        inactiveColor: Colors.grey,
+        onTap: (index) {},
+        items: const [
+          BottomNavigationBarItem(
+            label: 'Status',
+            icon: SizedBox(
+              height: 30,
+              child: FaIcon(kStatusIcon),
             ),
-            BottomNavigationBarItem(
-              label: 'Calls',
-              icon: FaIcon(kCallIcon),
-            ),
-            BottomNavigationBarItem(
-              label: 'Camera',
-              icon: FaIcon(kCameraIcon),
-            ),
-            BottomNavigationBarItem(
-              label: 'Chats',
-              icon: FaIcon(kChatsIcon),
-            ),
-            BottomNavigationBarItem(
-              label: 'Settings',
-              icon: FaIcon(kSettingsIcon),
-            ),
-          ],
-        ),
-        tabBuilder: (context, index) {
-          switch (index) {
-            case 0:
-              return const MobileChatsScreen();
-            case 1:
-              return const MobileSettings();
-            case 3:
-            default:
-              return const MobileSettings();
-          }
-        });
+          ),
+          BottomNavigationBarItem(
+            label: 'Calls',
+            icon: FaIcon(kCallIcon),
+          ),
+          BottomNavigationBarItem(
+            label: 'Camera',
+            icon: FaIcon(kCameraIcon),
+          ),
+          BottomNavigationBarItem(
+            label: 'Chats',
+            icon: FaIcon(kChatsIcon),
+          ),
+          BottomNavigationBarItem(
+            label: 'Settings',
+            icon: FaIcon(kSettingsIcon),
+          ),
+        ],
+      ),
+      tabBuilder: (context, index) {
+        switch (index) {
+          case 0:
+            return const MobileChatsScreen();
+          case 1:
+            return const MobileSettings();
+          case 3:
+          default:
+            return const MobileSettings();
+        }
+      },
+    );
   }
 }
