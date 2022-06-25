@@ -45,27 +45,11 @@ class ChatItem extends StatelessWidget {
               children: [
                 const Material(
                   child: Chip(
-                    label: Text('322'),
+                    backgroundColor: Colors.blue,
+                    visualDensity: VisualDensity(horizontal: -3.0, vertical: 0),
+                    label: Text('21'),
                   ),
                 ),
-                // Column(
-                //   mainAxisSize: MainAxisSize.min,
-                //   children: [
-                //     Container(
-                //       padding: const EdgeInsets.symmetric(
-                //         horizontal: 20,
-                //         vertical: 3,
-                //       ),
-                //       decoration: const BoxDecoration(
-                //         color: CupertinoColors.systemGreen,
-                //         shape: BoxShape.circle,
-                //       ),
-                //       child: const Center(
-                //         child: Text('221'),
-                //       ),
-                //     ),
-                //   ],
-                // ),
                 if (onHover ?? false) const FaIcon(kDropdownIcon)
               ],
             ),
