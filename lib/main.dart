@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:whatsap_clone/Routing/custom_page_route.dart';
 import 'package:whatsap_clone/screens/home.dart';
 import 'package:whatsap_clone/screens/mobile/profile_screen.dart';
@@ -14,8 +15,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const CupertinoApp(
       debugShowCheckedModeBanner: false,
+      localizationsDelegates: <LocalizationsDelegate<dynamic>>[
+        DefaultMaterialLocalizations.delegate,
+        DefaultWidgetsLocalizations.delegate,
+      ],
       title: 'WhatsApp',
-      initialRoute: HomeScreen.routeName,
       theme: CupertinoThemeData(
         barBackgroundColor: CupertinoDynamicColor.withBrightness(
           color: CupertinoColors.white,
