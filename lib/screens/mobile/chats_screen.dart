@@ -51,73 +51,84 @@ class _MobileChatsScreenState extends State<MobileChatsScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      navigationBar: CupertinoNavigationBar(
+        border: const Border(bottom: BorderSide.none),
+        middle: showChatTitle ? const Text('Chats') : null,
+        padding: const EdgeInsetsDirectional.only(start: 6),
+        leading: CupertinoButton(
+          onPressed: () {},
+          padding: EdgeInsets.zero,
+          child: const Text(
+            'Edit',
+            style: TextStyle(color: Colors.blue, fontSize: 17.3),
+          ),
+        ),
+        trailing: CupertinoButton(
+          onPressed: () {},
+          padding: EdgeInsets.zero,
+          child: const FaIcon(
+            kEditNoteIcon,
+            color: Colors.blue,
+            size: 21,
+          ),
+        ),
+      ),
       child: CustomScrollView(
         controller: controller,
         slivers: [
-          CupertinoSliverNavigationBar(
-            middle: showChatTitle ? const Text('Chats') : null,
-            padding: const EdgeInsetsDirectional.only(start: 6),
-            largeTitle: Padding(
-              padding: const EdgeInsets.only(right: 12.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const Text(
-                    'Chats',
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  const CupertinoSearchTextField(),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      CupertinoButton(
-                        padding: EdgeInsets.zero,
-                        child: const Text('Broadcast Lists'),
-                        onPressed: () {},
-                      ),
-                      CupertinoButton(
-                        padding: EdgeInsets.zero,
-                        child: const Text('New Group'),
-                        onPressed: () {},
-                      )
-                    ],
-                  )
-                ],
-              ),
-            ),
-            leading: CupertinoButton(
-              onPressed: () {},
-              padding: EdgeInsets.zero,
-              child: const Text(
-                'Edit',
-                style: TextStyle(color: Colors.blue, fontSize: 17.3),
-              ),
-            ),
-            trailing: CupertinoButton(
-              onPressed: () {},
-              padding: EdgeInsets.zero,
-              child: const FaIcon(
-                kEditNoteIcon,
-                color: Colors.blue,
-                size: 21,
-              ),
-            ),
-          ),
           SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => Column(
-                children: const [
-                  ChatItem(),
-                  Divider(
-                    indent: 50,
-                    thickness: 0.4,
-                  )
-                ],
+            delegate: SliverChildListDelegate([
+              Container(
+                margin: const EdgeInsets.only(left: 15.0, bottom: 5),
+                child: const Text(
+                  'Chats',
+                  style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
+                ),
               ),
-              childCount: 20,
-            ),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15.0),
+                child: CupertinoSearchTextField(),
+              ),
+              const SizedBox(
+                height: 8,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      child: const Text('Broadcast Lists'),
+                      onPressed: () {},
+                    ),
+                    CupertinoButton(
+                      padding: EdgeInsets.zero,
+                      child: const Text('New Group'),
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+              ),
+              const Divider(
+                height: 0,
+              ),
+              ListView.builder(
+                padding: EdgeInsets.zero,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: 20,
+                shrinkWrap: true,
+                itemBuilder: (context, index) => Column(
+                  children: const [
+                    ChatItem(),
+                    Divider(
+                      indent: 50,
+                      thickness: 0.4,
+                    )
+                  ],
+                ),
+              )
+            ]),
           ),
         ],
       ),
