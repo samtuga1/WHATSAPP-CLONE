@@ -39,16 +39,28 @@ class ChatItem extends StatelessWidget {
         ),
         const Spacer(),
         Column(
+          crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             const Text('29/08/22'),
             Row(
               children: [
-                const Material(
-                  child: Chip(
-                    backgroundColor: Colors.blue,
-                    visualDensity: VisualDensity(horizontal: -3.0, vertical: 0),
-                    label: Text('21'),
-                  ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 4,
+                      ),
+                      decoration: const BoxDecoration(
+                        color: Colors.blue,
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Center(
+                        child: Text('1'),
+                      ),
+                    ),
+                  ],
                 ),
                 if (onHover ?? false) const FaIcon(kDropdownIcon)
               ],
