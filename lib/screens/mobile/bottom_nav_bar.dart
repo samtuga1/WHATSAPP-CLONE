@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:whatsap_clone/constants/icons.dart';
 import 'package:whatsap_clone/constants/themes.dart';
 import 'package:whatsap_clone/providers/mobile/settings_provider.dart';
+import 'package:whatsap_clone/screens/mobile/calls_screen.dart';
 import 'package:whatsap_clone/screens/mobile/chats_screen.dart';
 import 'package:whatsap_clone/screens/mobile/settings.dart';
 import 'chats_screen.dart';
@@ -56,9 +57,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
         switch (index) {
           case 0:
             return const MobileChatsScreen();
-          case 1:
+          case 4:
             return const MobileSettings();
-          case 3:
+          case 1:
+            return const MobileCallScreen();
           default:
             return const MobileSettings();
         }
