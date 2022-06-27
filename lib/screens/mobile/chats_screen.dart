@@ -1,3 +1,4 @@
+import 'package:cupertino_lists/cupertino_lists.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -111,7 +112,7 @@ class _MobileChatsScreenState extends State<MobileChatsScreen> {
                 ),
               ),
               const Divider(
-                height: 0,
+                height: 5,
               ),
               ListView.builder(
                 padding: EdgeInsets.zero,
@@ -122,12 +123,12 @@ class _MobileChatsScreenState extends State<MobileChatsScreen> {
                   children: const [
                     ChatItem(),
                     Divider(
-                      indent: 50,
+                      indent: 66,
                       thickness: 0.4,
                     )
                   ],
                 ),
-              )
+              ),
             ]),
           ),
         ],
