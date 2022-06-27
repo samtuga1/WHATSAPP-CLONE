@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       localizationsDelegates: <LocalizationsDelegate<dynamic>>[
         DefaultMaterialLocalizations.delegate,
+        DefaultCupertinoLocalizations.delegate,
         DefaultWidgetsLocalizations.delegate,
       ],
       title: 'WhatsApp',
