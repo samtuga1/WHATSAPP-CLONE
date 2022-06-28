@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:whatsap_clone/constants/themes.dart';
 
 class ProfileScreen extends StatelessWidget {
   static const routeName = 'profile_screen';
@@ -7,43 +8,67 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: ElevatedButton.icon(
-          onPressed: () {},
-          icon: const Icon(Icons.arrow_back_ios_new),
-          label: const Text('Settings'),
+    return CupertinoPageScaffold(
+      backgroundColor: kBackgroundColor,
+      navigationBar: CupertinoNavigationBar(
+        border: Border.all(
+          color: Colors.transparent,
+          width: 0.0,
+          style: BorderStyle.none,
         ),
-        title: const Text('Edit Profile'),
-        centerTitle: true,
+        middle: const Text('Edit Profile'),
       ),
-      body: SingleChildScrollView(
+      child: SingleChildScrollView(
         child: Column(
           children: [
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
-                    CircleAvatar(
-                      radius: 30,
-                    ),
-                    Text(
-                      'Edit',
-                      style: TextStyle(color: Colors.blue),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  width: 15,
-                ),
-                const Text(
-                  'Enter your name and add an optional profile picture',
-                  style: TextStyle(color: Colors.grey),
-                )
-              ],
-            )
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: const [
+                          CircleAvatar(
+                            radius: 30,
+                          ),
+                          Text(
+                            'Edit',
+                            style: TextStyle(color: Colors.blue),
+                          )
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Expanded(
+                        child: Text(
+                          'Enter your name and add an optional profile picture',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                      )
+                    ],
+                  ),
+                  const Divider(
+                    indent: 50,
+                    height: 10,
+                  ),
+                  const CupertinoTextField(),
+                  const Divider(
+                    indent: 50,
+                    height: 10,
+                  ),
+                ],
+              ),
+            ),
+
+            // Text('PHONE NUMBER'),
+            // Container(
+            //   width: double.infinity,
+            //   decoration: BoxDecoration(border: Border.all(color: Colors.grey),),
+            //   child: Text('+233 55 509 3397'),
+            // )
           ],
         ),
       ),
