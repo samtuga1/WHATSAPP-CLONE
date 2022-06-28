@@ -45,7 +45,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ),
           BottomNavigationBarItem(
             label: 'Chats',
-            icon: FaIcon(kChatsIcon),
+            icon: FaIcon(
+              kChatsIcon,
+              size: 31.5,
+            ),
           ),
           BottomNavigationBarItem(
             label: 'Settings',
@@ -55,7 +58,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
       tabBuilder: (context, index) {
         switch (index) {
-          case 0:
+          case 3:
             return const MobileChatsScreen();
           case 4:
             return const MobileSettings();
