@@ -7,7 +7,6 @@ import 'package:whatsap_clone/constants/icons.dart';
 import 'package:whatsap_clone/constants/themes.dart';
 import 'package:whatsap_clone/providers/mobile/settings_provider.dart';
 import 'package:whatsap_clone/screens/mobile/profile_screen.dart';
-import '../../Routing/custom_page_route.dart';
 import '../../widgets/option_selector.dart';
 
 class MobileSettings extends StatefulWidget {
