@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:whatsap_clone/constants/icons.dart';
+import 'package:whatsap_clone/constants/themes.dart';
 import '../../widgets/chat_item.dart';
 
 class MobileChatsScreen extends StatefulWidget {
@@ -52,6 +53,7 @@ class _MobileChatsScreenState extends State<MobileChatsScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
+      backgroundColor: CupertinoColors.white,
       navigationBar: CupertinoNavigationBar(
         border: const Border(bottom: BorderSide.none),
         middle: showChatTitle ? const Text('Chats') : null,
@@ -120,9 +122,50 @@ class _MobileChatsScreenState extends State<MobileChatsScreen> {
                 itemCount: 20,
                 shrinkWrap: true,
                 itemBuilder: (context, index) => Column(
-                  children: const [
-                    ChatItem(),
-                    Divider(
+                  children: [
+                    CupertinoListItem(
+                      onTap: () {},
+                      trailing: Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          const Text('29/08/22'),
+                          Row(
+                            children: [
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Container(
+                                    padding: const EdgeInsets.symmetric(
+                                      horizontal: 10,
+                                      vertical: 4,
+                                    ),
+                                    decoration: const BoxDecoration(
+                                      color: Colors.blue,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: const Center(
+                                      child: Text('1'),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                      leadingWidgetSize: 26,
+                      title: const Text(
+                        'Sam',
+                        style: TextStyle(
+                          fontSize: 18,
+                        ),
+                      ),
+                      subtitle: const Text(
+                        'How are you doing ?',
+                        style: TextStyle(color: CupertinoColors.systemGrey),
+                      ),
+                    ),
+                    const Divider(
                       indent: 66,
                       thickness: 0.4,
                     )
