@@ -37,6 +37,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   provider: ^6.0.3
   cupertino_lists: ^1.0.1
+  cupertino_tabbar: ^2.0.0
 
 dev_dependencies:
   flutter_test:
