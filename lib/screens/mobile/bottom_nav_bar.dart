@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:whatsap_clone/constants/icons.dart';
 import 'package:whatsap_clone/constants/themes.dart';
+import 'package:whatsap_clone/providers/call_screen_provider.dart';
 import 'package:whatsap_clone/providers/mobile/settings_provider.dart';
 import 'package:whatsap_clone/screens/mobile/calls_screen.dart';
 import 'package:whatsap_clone/screens/mobile/chats_screen.dart';
@@ -63,7 +64,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
           case 4:
             return const MobileSettings();
           case 1:
-            return const MobileCallScreen();
+            return ChangeNotifierProvider(
+              create: (context) => CallScreenProvider(),
+              child: const MobileCallScreen(),
+            );
           default:
             return const MobileSettings();
         }
