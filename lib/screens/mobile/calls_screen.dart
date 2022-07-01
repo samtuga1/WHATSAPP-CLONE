@@ -1,22 +1,14 @@
-import 'package:cupertino_lists/cupertino_lists.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:provider/provider.dart';
 import 'package:whatsap_clone/constants/icons.dart';
 import 'package:cupertino_tabbar/cupertino_tabbar.dart' as ctb;
-import 'package:whatsap_clone/constants/themes.dart';
+import 'package:whatsap_clone/providers/call_screen_provider.dart';
 import 'package:whatsap_clone/widgets/chat_item.dart';
 
-class MobileCallScreen extends StatefulWidget {
+class MobileCallScreen extends StatelessWidget {
   const MobileCallScreen({Key? key}) : super(key: key);
-
-  @override
-  State<MobileCallScreen> createState() => _MobileCallScreenState();
-}
-
-class _MobileCallScreenState extends State<MobileCallScreen> {
-  int cupertinoTabBarIValue = 0;
-  int cupertinoTabBarIValueGetter() => cupertinoTabBarIValue;
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -53,12 +45,10 @@ class _MobileCallScreenState extends State<MobileCallScreen> {
                   textAlign: TextAlign.center,
                 ),
               ],
-              cupertinoTabBarIValueGetter,
-              (int index) {
-                setState(() {
-                  cupertinoTabBarIValue = index;
-                });
-              },
+              Provider.of<CallScreenProvider>(context)
+                  .cupertinoTabBarValueGetter,
+              (index) => Provider.of<CallScreenProvider>(context, listen: false)
+                  .changeCupertinoValue(index),
               borderRadius: BorderRadius.circular(5),
               useShadow: false,
             ),
