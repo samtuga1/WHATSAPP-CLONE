@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsap_clone/screens/home.dart';
+import 'package:whatsap_clone/screens/mobile/about_screen.dart';
 import 'package:whatsap_clone/screens/mobile/profile_screen.dart';
 
 void main() {
@@ -29,6 +30,7 @@ class MyApp extends StatelessWidget {
       home: const HomeScreen(),
       routes: {
         ProfileScreen.routeName: (context) => const ProfileScreen(),
+        MobileAboutScreen.routeName: (context) => const MobileAboutScreen(),
       },
     );
   }
