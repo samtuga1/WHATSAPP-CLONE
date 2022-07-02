@@ -59,11 +59,10 @@ class MobileAboutScreen extends StatelessWidget {
                     bottom: BorderSide(color: Colors.black38, width: 0.5),
                   ),
                 ),
-                padding:
-                    const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                 child: StatusOption(
                   title: abouts.currentStatusOption,
                   onTap: () {},
+                  loading: false,
                 ),
               ),
               const SizedBox(
@@ -87,24 +86,33 @@ class MobileAboutScreen extends StatelessWidget {
                     bottom: BorderSide(color: Colors.black38, width: 0.5),
                   ),
                 ),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                 child: Column(
                   children: List.generate(
-                    3,
+                    abouts.statusOptions.length,
                     (i) => Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         StatusOption(
                           title: abouts.statusOptions[i],
-                          onTap: () {},
+                          onTap: () => abouts.fakeDelay(
+                            abouts.statusOptions[i],
+                          ),
+                          loading: abouts.loading,
                         ),
-                        if (i != 2) const Divider()
+                        if (i != abouts.statusOptions.length - 1)
+                          const Divider(
+                            height: 8,
+                            indent: 20,
+                            thickness: 0.8,
+                          ),
                       ],
                     ),
                   ).toList(),
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 30,
+              ),
             ],
           ),
         ),
@@ -118,29 +126,36 @@ class StatusOption extends StatelessWidget {
     Key? key,
     required this.title,
     required this.onTap,
+    required this.loading,
   }) : super(key: key);
   final String title;
   final Function() onTap;
+  final bool loading;
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoButton.filled(
-      onPressed: onTap,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 17,
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              title,
+              style: const TextStyle(
+                fontSize: 17,
+              ),
             ),
-          ),
-          const Icon(
-            Icons.arrow_forward_ios,
-            size: 16,
-            color: Colors.grey,
-          ),
-        ],
+            loading
+                ? const CupertinoActivityIndicator()
+                : const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Colors.grey,
+                  ),
+          ],
+        ),
       ),
     );
   }
