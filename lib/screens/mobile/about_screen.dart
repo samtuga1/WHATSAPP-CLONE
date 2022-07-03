@@ -11,28 +11,21 @@ class MobileAboutScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final abouts = Provider.of<AboutScreenProvider>(context, listen: false);
+    final abouts = Provider.of<AboutScreenProvider>(context);
     return Material(
       child: Scaffold(
         backgroundColor: kBackgroundColor,
-        appBar: AppBar(
-          foregroundColor: Colors.black,
-          title: const Text('About'),
-          centerTitle: true,
-          leadingWidth: 115,
-          leading: Container(
-            margin: const EdgeInsets.only(left: 10),
-            child: const GoBack(backPage: 'Edit Profile'),
-          ),
-          elevation: 0,
+        appBar: CupertinoNavigationBar(
+          automaticallyImplyLeading: true,
+          previousPageTitle: 'Edit Profile',
+          border: const Border(bottom: BorderSide.none),
+          middle: const Text('About'),
           backgroundColor: kBackgroundColor,
-          actions: [
-            CupertinoButton(
-              padding: EdgeInsets.zero,
-              child: const Text('Edit'),
-              onPressed: () {},
-            ),
-          ],
+          trailing: CupertinoButton(
+            padding: EdgeInsets.zero,
+            child: const Text('Edit'),
+            onPressed: () {},
+          ),
         ),
         body: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
@@ -62,7 +55,11 @@ class MobileAboutScreen extends StatelessWidget {
                 child: StatusOption(
                   title: abouts.currentStatusOption,
                   onTap: () {},
-                  loading: false,
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 16,
+                    color: Colors.grey,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -78,6 +75,7 @@ class MobileAboutScreen extends StatelessWidget {
                   ),
                 ),
               ),
+              // Start
               Container(
                 decoration: const BoxDecoration(
                   color: Colors.white,
@@ -89,25 +87,41 @@ class MobileAboutScreen extends StatelessWidget {
                 child: Column(
                   children: List.generate(
                     abouts.statusOptions.length,
-                    (i) => Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        StatusOption(
-                          title: abouts.statusOptions[i],
-                          onTap: () => abouts.fakeDelay(
-                            abouts.statusOptions[i],
+                    (i) {
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          StatusOption(
+                            i: i,
+                            title: abouts.statusOptions[i],
+                            onTap: () =>
+                                abouts.fakeDelay(abouts.statusOptions[i], i),
+                            trailing: abouts.loading == i
+                                ? const CupertinoActivityIndicator()
+                                : abouts.currentStatusOption ==
+                                        abouts.statusOptions[i]
+                                    ? const Icon(
+                                        CupertinoIcons.check_mark,
+                                        size: 20,
+                                        color: Colors.blueAccent,
+                                      )
+                                    : const Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 16,
+                                        color: Colors.grey,
+                                      ),
                           ),
-                          loading: abouts.loading,
-                        ),
-                        if (i != abouts.statusOptions.length - 1)
-                          const Divider(
-                            height: 8,
-                            indent: 20,
-                            thickness: 0.8,
-                          ),
-                      ],
-                    ),
-                  ).toList(),
+                          if (i != abouts.statusOptions.length - 1)
+                            const Divider(
+                              height: 8,
+                              indent: 20,
+                              thickness: 0.8,
+                            ),
+                        ],
+                      );
+                    },
+                  ),
+                  //
                 ),
               ),
               const SizedBox(
@@ -126,11 +140,13 @@ class StatusOption extends StatelessWidget {
     Key? key,
     required this.title,
     required this.onTap,
-    required this.loading,
+    required this.trailing,
+    this.i,
   }) : super(key: key);
   final String title;
   final Function() onTap;
-  final bool loading;
+  final Widget trailing;
+  final int? i;
 
   @override
   Widget build(BuildContext context) {
@@ -147,13 +163,7 @@ class StatusOption extends StatelessWidget {
                 fontSize: 17,
               ),
             ),
-            loading
-                ? const CupertinoActivityIndicator()
-                : const Icon(
-                    Icons.arrow_forward_ios,
-                    size: 16,
-                    color: Colors.grey,
-                  ),
+            trailing,
           ],
         ),
       ),

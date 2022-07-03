@@ -9,6 +9,7 @@ import 'package:whatsap_clone/providers/mobile/settings_provider.dart';
 import 'package:whatsap_clone/screens/mobile/calls_screen.dart';
 import 'package:whatsap_clone/screens/mobile/chats_screen.dart';
 import 'package:whatsap_clone/screens/mobile/settings.dart';
+import 'package:whatsap_clone/screens/mobile/status_screen.dart';
 import 'chats_screen.dart';
 
 class BottomNavBar extends StatefulWidget {
@@ -59,6 +60,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
       ),
       tabBuilder: (context, index) {
         switch (index) {
+          case 0:
+            return const StatusScreen();
           case 3:
             return const MobileChatsScreen();
           case 4:
