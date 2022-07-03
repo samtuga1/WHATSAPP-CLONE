@@ -39,6 +39,7 @@ dependencies:
   cupertino_lists: ^1.0.1
   cupertino_tabbar: ^2.0.0
   percent_indicator: ^4.2.2
+  dismissible_page: ^0.7.3
 
 dev_dependencies:
   flutter_test:
