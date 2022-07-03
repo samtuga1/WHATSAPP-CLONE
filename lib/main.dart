@@ -5,6 +5,7 @@ import 'package:whatsap_clone/providers/mobile/about_provider.dart';
 import 'package:whatsap_clone/screens/home.dart';
 import 'package:whatsap_clone/screens/mobile/about_screen.dart';
 import 'package:whatsap_clone/screens/mobile/profile_screen.dart';
+import 'package:whatsap_clone/screens/mobile/story_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         routes: {
           ProfileScreen.routeName: (context) => const ProfileScreen(),
           MobileAboutScreen.routeName: (context) => const MobileAboutScreen(),
+          StoryScreen.routeName: (context) => const StoryScreen(),
         },
       ),
     );
