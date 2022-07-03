@@ -54,8 +54,11 @@ class StatusScreen extends StatelessWidget {
                           child: GestureDetector(
                             onTap: () => Navigator.of(context)
                                 .pushNamed(StoryScreen.routeName),
-                            child: const CircleAvatar(
-                              radius: 30,
+                            child: const Hero(
+                              tag: 'story_screen',
+                              child: CircleAvatar(
+                                radius: 30,
+                              ),
                             ),
                           ),
                         ),
