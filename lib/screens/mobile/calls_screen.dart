@@ -95,6 +95,7 @@ class MobileCallScreen extends StatelessWidget {
                       indent: 65,
                     ),
                     CupertinoListItem(
+                      isStory: false,
                       onTap: () {},
                       leadingWidgetSize: 24,
                       title: const Text(
