@@ -124,6 +124,7 @@ class _MobileChatsScreenState extends State<MobileChatsScreen> {
                 itemBuilder: (context, index) => Column(
                   children: [
                     CupertinoListItem(
+                      isStory: false,
                       onTap: () {},
                       trailing: Column(
                         crossAxisAlignment: CrossAxisAlignment.end,
