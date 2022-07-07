@@ -69,7 +69,9 @@ class ChatsDesktopView extends StatelessWidget {
                   itemCount: 20,
                   itemBuilder: (context, index) => Column(
                     children: const [
-                      CupertinoListItem(),
+                      CupertinoListItem(
+                        isStory: false,
+                      ),
                       Divider(
                         indent: 50,
                         thickness: 0.4,
