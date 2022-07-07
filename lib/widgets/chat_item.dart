@@ -1,7 +1,5 @@
 import 'package:dashed_color_circle/dashed_color_circle.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:whatsap_clone/constants/themes.dart';
 
 class CupertinoListItem extends StatelessWidget {
   const CupertinoListItem({
@@ -44,11 +42,11 @@ class CupertinoListItem extends StatelessWidget {
                         fillCount: 1,
                         size: 60.0,
                         gapSize: 6.0,
-                        strokeWidth: 3.0,
+                        strokeWidth: 2.0,
                       ),
                     Positioned(
-                      left: isStory ? 3.9 : null,
-                      top: isStory ? 3.7 : null,
+                      left: isStory ? 4 : null,
+                      top: isStory ? 3.9 : null,
                       child: const CircleAvatar(
                         radius: 26,
                       ),
