@@ -64,6 +64,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.0.0"
+  dashed_color_circle:
+    dependency: "direct main"
+    description:
+      name: dashed_color_circle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   dismissible_page:
     dependency: "direct main"
     description:
