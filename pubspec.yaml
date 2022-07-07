@@ -41,6 +41,7 @@ dependencies:
   percent_indicator: ^4.2.2
   dismissible_page: ^0.7.3
   dashed_color_circle: ^0.0.2
+  firebase_core: ^1.19.1
 
 dev_dependencies:
   flutter_test:
