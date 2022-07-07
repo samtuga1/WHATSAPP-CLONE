@@ -70,11 +70,11 @@ class StatusScreen extends StatelessWidget {
                                       fillCount: 1,
                                       size: 60.0,
                                       gapSize: 6.0,
-                                      strokeWidth: 3.0,
+                                      strokeWidth: 2.0,
                                     ),
                                     Positioned(
-                                      left: 3.9,
-                                      top: 3.7,
+                                      left: 4,
+                                      top: 3.9,
                                       child: CircleAvatar(
                                         radius: 26,
                                       ),
@@ -165,7 +165,7 @@ class StatusScreen extends StatelessWidget {
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
-                      itemCount: 1,
+                      itemCount: 5,
                       itemBuilder: (context, index) => Column(
                         children: const [
                           Padding(
@@ -180,12 +180,14 @@ class StatusScreen extends StatelessWidget {
                                   fontSize: 20,
                                 ),
                               ),
-                              subtitle: Text('just now',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 17.5,
-                                    color: Colors.grey,
-                                  )),
+                              subtitle: Text(
+                                'just now',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 17.5,
+                                  color: Colors.grey,
+                                ),
+                              ),
                               trailing: Text(''),
                             ),
                           ),
