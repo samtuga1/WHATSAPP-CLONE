@@ -72,7 +72,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               child: const MobileCallScreen(),
             );
           default:
-            return const MobileSettings();
+            return Container();
         }
       },
     );
