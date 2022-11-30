@@ -160,7 +160,7 @@ class _StoryScreenState extends State<StoryScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 45,
+                      top: 55,
                       child: Row(
                         children: [
                           Material(
@@ -202,7 +202,7 @@ class _StoryScreenState extends State<StoryScreen> {
                       ),
                     ),
                     Positioned(
-                      top: 48,
+                      top: 55,
                       right: 0,
                       child: Material(
                         color: Colors.transparent,
